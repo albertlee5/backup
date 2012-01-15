@@ -84,7 +84,6 @@ void *video_thread_fxn( void *envByRef )
     // The levels of initialization for initMask
     #define     DISPLAYDEVICEINITIALIZED     0x2
     #define     CAPTUREDEVICEINITIALIZED     0x4
-    #define     INPUTFILEOPENED              0x8           // Only used for lab07b_video_capture
 
     unsigned  int   initMask =  0x0;	// Used to only cleanup items that were init'd
 
@@ -155,21 +154,6 @@ void *video_thread_fxn( void *envByRef )
     initMask	|= DISPLAYDEVICEINITIALIZED;
 
 
-    // Initialize the video inputFile (for reading recorded raw data from lab07b)
-    // ******************************
-
-    // Open input file for read
-    if( ( inputFile = fopen( INPUTFILE, "r" ) ) == NULL ) {
-        ERR( "Failed to open raw video input file %s\n", INPUTFILE );
-        status = VIDEO_THREAD_FAILURE;
-        goto cleanup;
-    }
-
-    DBG( "Opened file %s with FILE pointer %p\n", INPUTFILE, inputFile );
-
-    // Record that video input file was opened in initialization bitmask
-    initMask |= INPUTFILEOPENED;
-
 
 // Thread Execute Phase -- perform I/O and processing
 // **************************************************
@@ -232,11 +216,6 @@ cleanup:
     // ***********************
     //  - Uses the initMask to only free resources that were allocated.
 
-    // Close video input file
-    if( initMask & INPUTFILEOPENED ) {
-        DBG( "Closing FILE ptr %p\n", inputFile );
-        fclose( inputFile );
-    }
 
     // Close video display device
     if( initMask & DISPLAYDEVICEINITIALIZED ) {
