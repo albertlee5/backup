@@ -1,0 +1,34 @@
+
+Building 'debug' profile by calling:  make -f makefile_profile.mak PROFILE=DEBUG
+
+2.  ----- Need to generate:      DEBUG/video_output.o (due to: video_output.c ...)
+          Successfully created:  DEBUG/video_output.o 
+2.  ----- Need to generate:      DEBUG/main.o (due to: main.c ...)
+          Successfully created:  DEBUG/main.o 
+2.  ----- Need to generate:      DEBUG/video_input.o (due to: video_input.c ...)
+          Successfully created:  DEBUG/video_input.o 
+2.  ----- Need to generate:      DEBUG/video_thread.o (due to: video_thread.c ...)
+          Successfully created:  DEBUG/video_thread.o 
+
+1.  ----- Need to generate executable file: videoThru_DEBUG.Beagle 
+          Successfully created executable : videoThru_DEBUG.Beagle 
+
+Done building 'debug'
+
+
+Building 'release' profile by calling:  make -f makefile_profile.mak PROFILE=RELEASE
+
+2.  ----- Need to generate:      RELEASE/video_output.o (due to: video_output.c ...)
+          Successfully created:  RELEASE/video_output.o 
+2.  ----- Need to generate:      RELEASE/main.o (due to: main.c ...)
+          Successfully created:  RELEASE/main.o 
+2.  ----- Need to generate:      RELEASE/video_input.o (due to: video_input.c ...)
+          Successfully created:  RELEASE/video_input.o 
+2.  ----- Need to generate:      RELEASE/video_thread.o (due to: video_thread.c ...)
+          Successfully created:  RELEASE/video_thread.o 
+
+1.  ----- Need to generate executable file: videoThru_RELEASE.Beagle 
+          Successfully created executable : videoThru_RELEASE.Beagle 
+
+Done building 'release'
+
